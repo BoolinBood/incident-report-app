@@ -1,20 +1,25 @@
 import type {
+  APIResponse
+} from './response'
+
+import type {
 	GetAllIncidentReportResponse,
 	GetIncidentReportByIdResponse,
 	PostIncidentReportRequest,
 	PostIncidentReportResponse,
 	PutIncidentReportRequest,
 	PutIncidentReportResponse
-} from './incident_report';
+} from './incident_report.dto';
 
 import type {
-  GetIncidentReportCategory
-} from './incident_report_category'
+  GetIncidentReportCategoryResponse
+} from './incident_report_category.dto'
 
 export type {
+  APIResponse,
   GetAllIncidentReportResponse,
   GetIncidentReportByIdResponse,
-  GetIncidentReportCategory,
+  GetIncidentReportCategoryResponse,
   PostIncidentReportRequest,
   PostIncidentReportResponse,
   PutIncidentReportRequest,

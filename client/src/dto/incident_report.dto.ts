@@ -5,7 +5,7 @@ export type PostIncidentReportRequest = {
 	description:  String;
 	categoryId:   Number;
 	status:       IncidentReportStatus;
-	createdAt:    String;
+	created_at:    String;
 };
 
 export type PostIncidentReportResponse = {
@@ -14,7 +14,7 @@ export type PostIncidentReportResponse = {
 	description:  String;
 	categoryId:   Number;
 	status:       IncidentReportStatus;
-	createdAt:    String;
+	created_at:    String;
 };
 
 export type GetAllIncidentReportResponse = {
@@ -23,7 +23,7 @@ export type GetAllIncidentReportResponse = {
 	description:  String;
 	category:     IncidentReportCategory;
 	status:       IncidentReportStatus;
-	createdAt:    String;
+	created_at:    String;
 };
 
 export type GetIncidentReportByIdResponse = {
@@ -32,7 +32,7 @@ export type GetIncidentReportByIdResponse = {
 	description:  String;
 	category:     IncidentReportCategory;
 	status:       IncidentReportStatus;
-	createdAt:    String;
+	created_at:    String;
 };
 
 export type PutIncidentReportRequest = {
@@ -41,7 +41,7 @@ export type PutIncidentReportRequest = {
 	description:  String;
 	categoryId:   Number;
 	status:       IncidentReportStatus;
-	createdAt:    String;
+	created_at:    String;
 };
 
 export type PutIncidentReportResponse = {
@@ -50,5 +50,5 @@ export type PutIncidentReportResponse = {
 	description:  String;
 	categoryId:   Number;
 	status:       IncidentReportStatus;
-	createdAt:    String;
+	created_at:    String;
 };
