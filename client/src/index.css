@@ -1,1 +1,22 @@
 @import "tailwindcss";
+
+@layer components {
+  .report-table {
+    width: 100%;
+    border: 1px solid var(--color-gray-300);
+    
+    th, td {
+      padding: 12px;
+    }
+    
+    th {
+      font-weight: bold;
+      text-align: left;
+    }
+
+    td {
+      border-bottom: 1px solid var(--color-gray-300);
+    }
+    
+  }
+}
