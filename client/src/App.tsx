@@ -1,5 +1,7 @@
+import { Toaster } from "react-hot-toast"
 import Sidebar from "./components/sidebar/Sidebar"
 import ReportTable from "./components/table/ReportTable"
+import GlobalModal from "./components/common/GlobalModal"
 
 function App() {
 
@@ -15,6 +17,8 @@ function App() {
           <ReportTable />
         </div>
       </div>
+      <GlobalModal />
+      <Toaster position="top-right"/>
     </>
   )
 }

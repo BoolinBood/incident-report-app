@@ -1,21 +1,23 @@
-import React, { useEffect, useState } from 'react'
-import type { GetAllIncidentReportResponse } from '../../dto'
+import { useEffect } from 'react'
 import IncidentReportService from '../../services/incident_report.service'
 import ReportTableRow from './ReportTableRow'
+import { useIncidentReportStore } from '../../stores/incident_reports.store'
 
 const ReportTable = () => {
-  
-  const [reports, setReports] = useState<GetAllIncidentReportResponse[] | null>([])
-  
-  const getIncidentReports = async () => {
-    const response = await IncidentReportService.GetAllIncidentReports()
-    setReports(response.content)
-  }
-  
+
+  const reports = useIncidentReportStore((state) => state.reports)
+  const setReports = useIncidentReportStore((state) => state.setReports)
+
   useEffect(() => {
+
+    const getIncidentReports = async () => {
+      const response = await IncidentReportService.GetAllIncidentReports()
+      setReports(response.content)
+    }
+
     getIncidentReports()
-  }, [])
-  
+  }, [setReports])
+
   return (
     <table className='report-table'>
 
@@ -29,11 +31,11 @@ const ReportTable = () => {
           <th>Action</th>
         </tr>
       </thead>
-      
+
       <tbody>
-        { reports?.map(report => <ReportTableRow data={report} />) }
+        {reports?.map((report, index) => <ReportTableRow key={index} data={report} />)}
       </tbody>
-      
+
     </table>
   )
 }

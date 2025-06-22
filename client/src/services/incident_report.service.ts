@@ -3,11 +3,11 @@ import { api } from "../utils";
 
 interface IncidentReportServiceSpec {
   CreateNewIncidentReport: (request: PostIncidentReportRequest) => Promise<APIResponse<PostIncidentReportResponse>>
-  GetAllIncidentReports: () => Promise<APIResponse<Array<GetAllIncidentReportResponse>>>
-  GetIncidentReportById: (id: Number) => Promise<APIResponse<GetIncidentReportByIdResponse>>
-  GetIncidentReportCategory: () => Promise<APIResponse<GetIncidentReportCategoryResponse>>
+  GetAllIncidentReports: () => Promise<APIResponse<GetAllIncidentReportResponse[]>>
+  GetIncidentReportById: (id: number) => Promise<APIResponse<GetIncidentReportByIdResponse>>
+  GetIncidentReportCategory: () => Promise<APIResponse<GetIncidentReportCategoryResponse[]>>
   UpdateIncidentReport: (request: PutIncidentReportRequest) => Promise<APIResponse<PutIncidentReportResponse>>
-  DeleteIncidentReport: (id: Number) => void
+  DeleteIncidentReport: (id: number) => Promise<APIResponse<null>>
 }
 
 const IncidentReportService: IncidentReportServiceSpec = {
@@ -31,7 +31,7 @@ const IncidentReportService: IncidentReportServiceSpec = {
       status:   response.status
     }
   },
-  GetIncidentReportById: async function (id: Number): Promise<APIResponse<GetIncidentReportByIdResponse>> {
+  GetIncidentReportById: async function (id: number): Promise<APIResponse<GetIncidentReportByIdResponse>> {
     const response = await api.get(`/incident-reports/${id}`)
 
     return {
@@ -41,7 +41,7 @@ const IncidentReportService: IncidentReportServiceSpec = {
       status:   response.status
     }
   },
-  GetIncidentReportCategory: async function (): Promise<APIResponse<GetIncidentReportCategoryResponse>> {
+  GetIncidentReportCategory: async function (): Promise<APIResponse<GetIncidentReportCategoryResponse[]>> {
     const response = await api.get('/incident-reports/categories')
 
     return {
@@ -61,8 +61,14 @@ const IncidentReportService: IncidentReportServiceSpec = {
       status:  response.status
     }
   },
-  DeleteIncidentReport: async function (id: Number): Promise<void> {
-    const response = await api.get(`/incident-reports/${id}`)
+  DeleteIncidentReport: async function (id: number): Promise<APIResponse<null>> {
+    const response = await api.delete(`/incident-reports/${id}`)
+    return {
+      content: null,
+      message: response.data.message || `Successfully delete report id ${id}`,
+      error: response.data.error || false,
+      status: response.status
+    }
   }
 }
 

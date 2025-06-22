@@ -1,7 +1,5 @@
-import React from 'react'
-
 interface Props {
-  label: String
+  label: string
 }
 
 const ReportTableTag = ({label}: Props) => {

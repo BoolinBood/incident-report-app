@@ -1,54 +1,53 @@
 import type { IncidentReportCategory, IncidentReportStatus } from "../types"
 
 export type PostIncidentReportRequest = {
-	title:        String;
-	description:  String;
-	categoryId:   Number;
+	title:        string;
+	description:  string;
+	category_id:   number;
 	status:       IncidentReportStatus;
-	created_at:    String;
 };
 
 export type PostIncidentReportResponse = {
-	id:           Number;
-	title:        String;
-	description:  String;
-	categoryId:   Number;
+	id:           number;
+	title:        string;
+	description:  string;
+	category_id:   number;
 	status:       IncidentReportStatus;
-	created_at:    String;
+	created_at:    string;
 };
 
 export type GetAllIncidentReportResponse = {
-	id:           Number;
-	title:        String;
-	description:  String;
+	id:           number;
+	title:        string;
+	description:  string;
 	category:     IncidentReportCategory;
 	status:       IncidentReportStatus;
-	created_at:    String;
+	created_at:    string;
 };
 
 export type GetIncidentReportByIdResponse = {
-	id:           Number;
-	title:        String;
-	description:  String;
+	id:           number;
+	title:        string;
+	description:  string;
 	category:     IncidentReportCategory;
-	status:       IncidentReportStatus;
-	created_at:    String;
+	status:       IncidentReportStatus | null;
+	created_at:    string;
 };
 
 export type PutIncidentReportRequest = {
-  id:           Number;
-	title:        String;
-	description:  String;
-	categoryId:   Number;
-	status:       IncidentReportStatus;
-	created_at:    String;
+  id:           number;
+	title:        string;
+	description:  string;
+	category_id:   number;
+	status:       IncidentReportStatus | null;
+	created_at:    string;
 };
 
 export type PutIncidentReportResponse = {
-	id:           Number;
-	title:        String;
-	description:  String;
-	categoryId:   Number;
+	id:           number;
+	title:        string;
+	description:  string;
+	category_id:   number;
 	status:       IncidentReportStatus;
-	created_at:    String;
+	created_at:    string;
 };

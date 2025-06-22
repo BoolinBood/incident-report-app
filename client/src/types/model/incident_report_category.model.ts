@@ -1,4 +1,4 @@
 export type IncidentReportCategory = {
-	id: Number;
-	name: String;
+	id: number;
+	name: string;
 };
