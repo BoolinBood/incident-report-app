@@ -3,7 +3,6 @@ package main
 import (
 	db "incident-report-server/database"
 	"incident-report-server/internal/routes"
-	"github.com/gofiber/fiber/v2/middleware/cors"
 	"log"
 	fiber "github.com/gofiber/fiber/v2"
 )
@@ -17,8 +16,6 @@ func main() {
 	}
 	
 	app := fiber.New()
-
-	app.Use(cors.New())
 	
 	routes.RegiterRoutes(app)
 	
